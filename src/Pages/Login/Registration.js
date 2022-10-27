@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Registration = () => {
     return (
         <div>
-            <h2>this is Registration page</h2>
+
         </div>
+
     );
 };
 

@@ -3,23 +3,35 @@ import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
+
+    const handleSignIn = (event) => {
+        event.preventDefault();
+        const form = event.target.form;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    }
+
     return (
         <div className='card bg-base-100 shadow-xl p-5 items-center mx-32'>
             <h2 className='text-3xl text-amber-400'>Login</h2>
 
+
             <div className="form-control w-full">
-                <label className="label">
-                    <span className="label-text">Your Email</span>
-                </label>
-                <input name='email' type="text" placeholder="Type your email" className="input input-bordered input-info w-full" />
+                <form action="">
+                    <label className="label">
+                        <span className="label-text">Your Email</span>
+                    </label>
+                    <input name='email' type="email" placeholder="Type your email" className="input input-bordered input-info w-full" />
 
-                <label className="label">
-                    <span className="label-text">Your Password</span>
-                </label>
-                <input name='password' type="password" placeholder="Type your password" className="input input-bordered input-info w-full" />
-                <button className="btn w-1/3 sm:btn-sm md:btn-md lg:btn-lg btn-success my-4">Login</button>
+                    <label className="label">
+                        <span className="label-text">Your Password</span>
+                    </label>
+                    <input name='password' type="password" placeholder="Type your password" className="input input-bordered input-info w-full" />
+                    <button onClick={handleSignIn} className="btn w-1/3 sm:btn-sm md:btn-md lg:btn-lg btn-success my-4">Login</button>
+                </form>
+
                 <p>Haven't any account? <Link to='/signup' className='text-success my-2'>Create an account.</Link> </p>
-
                 <div className='items-center text-center '>
                     <hr />
                     <p className='my-5'>Or use one of these options</p>
@@ -40,6 +52,8 @@ const Login = () => {
                     </div>
                 </div>
             </div>
+
+
 
         </div>
     );
