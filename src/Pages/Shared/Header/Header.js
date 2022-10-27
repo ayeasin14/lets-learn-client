@@ -12,7 +12,7 @@ const Header = () => {
             </div>
             <div className="flex-none">
                 <ul className="menu menu-horizontal p-0">
-                    <li><Link>Courses</Link></li>
+                    <li><Link to='/'>Courses</Link></li>
                     <li><Link>FAQ</Link></li>
                     <li><Link>Blog</Link></li>
                     <li><Link>toggle theme</Link></li>
