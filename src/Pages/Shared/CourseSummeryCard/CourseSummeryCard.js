@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 
 const CourseSummeryCard = ({ course }) => {
-    console.log(course);
+    // console.log(course);
 
     const { title, _id, author, total_view, details, image_url } = course;
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl mb-12">
+        <div className="card card-compact bg-base-100 shadow-2xl border">
             <figure><img src={image_url} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
