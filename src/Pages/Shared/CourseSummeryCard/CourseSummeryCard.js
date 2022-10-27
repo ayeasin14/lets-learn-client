@@ -11,8 +11,8 @@ const CourseSummeryCard = ({ course }) => {
             <figure><img src={image_url} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
-                <p>{details.length > 250 ?
-                    <span>{details.slice(0, 250) + '...'} <Link to={`/course/${_id}`}>Read more</Link> </span>
+                <p>{details.length > 200 ?
+                    <span>{details.slice(0, 200) + '...'} <Link to={`/course/${_id}`}>Read more</Link> </span>
                     :
                     <span>{details}</span>
                 }</p>
