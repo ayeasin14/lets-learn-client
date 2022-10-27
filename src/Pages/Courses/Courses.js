@@ -1,9 +1,12 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 
 const Courses = () => {
+    const course = useLoaderData();
+
     return (
         <div>
-            <h2>this is courses</h2>
+            <h2>this category has courses {course.length}</h2>
         </div>
     );
 };
