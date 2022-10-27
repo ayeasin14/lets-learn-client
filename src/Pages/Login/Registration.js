@@ -1,9 +1,11 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Registration = () => {
+    const [error, setError] = useState('');
 
     const { createUser } = useContext(AuthContext);
 
@@ -20,20 +22,26 @@ const Registration = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                form.reset();
             })
-            .catch(error => console.error(error))
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
 
     }
 
     return (
-        <div className='card bg-base-100 shadow-xl p-5 items-center mx-32'>
+        <div className='card bg-base-100 shadow-xl p-5 items-center lg:mx-32 md:mx-32'>
             <h2 className='text-3xl text-amber-400'>Create An Account</h2>
             <div className="form-control w-full">
                 <form onSubmit={handleSubmit}>
-                    <label className="label">
-                        <span className="label-text">Your Full Name</span>
-                    </label>
-                    <input name='name' type="text" placeholder="Type your full name" className="input input-bordered input-info w-full" />
+                    <div>
+                        <label className="label">
+                            <span className="label-text">Your Full Name</span>
+                        </label>
+                        <input name='name' type="text" placeholder="Type your full name" className="input input-bordered input-info w-full" />
+                    </div>
 
                     <div>
                         <label className="label">
@@ -55,7 +63,10 @@ const Registration = () => {
                         </label>
                         <input name='password' type="password" placeholder="Type your password" className="input input-bordered input-info w-full" required />
                     </div>
-                    <button className="btn w-1/3 sm:btn-sm md:btn-md lg:btn-lg btn-success my-4">Signup</button>
+                    <div className='flex items-baseline'>
+                        <button className="btn w-1/3 sm:btn-sm md:btn-md lg:btn-lg btn-success my-4">Signup</button>
+                        <p className='text-red-300 mx-3 text-lg'>{error}</p>
+                    </div>
                 </form>
                 <p>Already Regiter? <Link to='/login' className='text-success my-2'>Login</Link> </p>
             </div>

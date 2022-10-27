@@ -7,8 +7,6 @@ const Courses = () => {
 
     return (
         <div>
-            <h2>this category has courses {categoryCourse.length}</h2>
-
             <div className='grid lg:grid-cols-3 gap-10 m-8 '>
                 {
                     categoryCourse.map(course => <CourseSummeryCard

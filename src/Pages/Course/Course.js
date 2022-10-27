@@ -19,7 +19,7 @@ const Course = () => {
                 <div className="card-actions justify-end my-4">
                     <p className='text-2xl'>By: <span className='text-orange-600'>{author?.name}</span> | <span className='text-orange-600'> <FaStar className='inline text-warning align-baseline mx-4-' /> {rating?.number}</span> </p>
 
-                    <Link><button className="btn btn-warning hover:btn-success">Get Premium Access</button></Link>
+                    <Link to='/checkout'><button className="btn btn-warning hover:btn-success">Get Premium Access</button></Link>
                     <Link to={`/category/${category_id}`}><button className="btn btn-primary">Explore more</button></Link>
                 </div>
             </div>

@@ -9,10 +9,10 @@ const Main = () => {
         <div>
             <Header></Header>
             <div className="grid grid-cols-5 gap-4">
-                <div className="">
+                <div className="hidden lg:flex ">
                     <LeftSideNav></LeftSideNav>
                 </div>
-                <div className="col-span-4">
+                <div className="lg:col-span-4 col-span-full ">
                     <Outlet></Outlet>
                 </div>
             </div>

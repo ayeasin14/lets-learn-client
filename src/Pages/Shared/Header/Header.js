@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
+import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
 
@@ -30,11 +31,15 @@ const Header = () => {
                             <li><Link>FAQ</Link></li>
                             <li><Link>Blog</Link></li>
                             <li><Link>toggle theme</Link></li>
+                            <div className='lg:hidden flex'>
+                                <LeftSideNav></LeftSideNav>
+                            </div>
                         </ul>
+
                     </div>
                     <Link to='/' className="btn btn-ghost normal-case text-xl">
                         <img className='h-12 mx-4' src={Logo} alt="" />
-                        Let's Learn</Link>
+                        <span className='lg:flex md:flex hidden'>Let's Learn</span></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
