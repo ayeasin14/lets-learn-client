@@ -6,6 +6,8 @@ import Courses from "../../Pages/Courses/Courses";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Registration from "../../Pages/Login/Registration";
+import Blog from "../../Pages/Others/Blog/Blog";
+import FAQ from "../../Pages/Others/FAQ/FAQ";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const routes = createBrowserRouter([
@@ -16,18 +18,18 @@ export const routes = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/course')
+                loader: () => fetch('https://lets-learn-server-delta.vercel.app/course')
             },
             {
                 path: '/category/:id',
                 element: <Courses></Courses>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://lets-learn-server-delta.vercel.app/category/${params.id}`)
 
             },
             {
                 path: '/course/:id',
                 element: <Course></Course>,
-                loader: ({ params }) => fetch(`http://localhost:5000/course/${params.id}`)
+                loader: ({ params }) => fetch(`https://lets-learn-server-delta.vercel.app/course/${params.id}`)
             },
             {
                 path: '/login',
@@ -40,6 +42,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/checkout',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             }
         ]
     }

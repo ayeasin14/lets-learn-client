@@ -28,8 +28,8 @@ const Header = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             <li><Link to='/'>Courses</Link></li>
-                            <li><Link>FAQ</Link></li>
-                            <li><Link>Blog</Link></li>
+                            <li><Link to='/faq'>FAQ</Link></li>
+                            <li><Link to='/blog'>Blog</Link></li>
                             <li><Link>toggle theme</Link></li>
                             <div className='lg:hidden flex'>
                                 <LeftSideNav></LeftSideNav>
@@ -44,8 +44,8 @@ const Header = () => {
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal p-0">
                         <li><Link to='/'>Courses</Link></li>
-                        <li><Link>FAQ</Link></li>
-                        <li><Link>Blog</Link></li>
+                        <li><Link to='/faq'>FAQ</Link></li>
+                        <li><Link to='/blog'>Blog</Link></li>
                         <li><Link>toggle theme</Link></li>
                     </ul>
                 </div>
@@ -57,7 +57,7 @@ const Header = () => {
                                 <Link>
                                     <h4>{user?.displayName}</h4>
                                 </Link>
-                                <span className='mx-3 w-8'>
+                                <span className='mx-3 w-8 tooltip tooltip-bottom' data-tip={user?.displayName}>
                                     {
                                         user?.photoURL ?
                                             <img className='rounded-full' src={user?.photoURL} alt='' />
