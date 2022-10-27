@@ -1,8 +1,13 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
+import { useContext } from 'react';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
+    const { providerLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider()
 
     const handleSignIn = (event) => {
         event.preventDefault();
@@ -10,6 +15,16 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+    }
+
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
 
     return (
@@ -36,7 +51,7 @@ const Login = () => {
                     <hr />
                     <p className='my-5'>Or use one of these options</p>
                     <div className='grid lg:grid-cols-3 gap-3'>
-                        <button className="btn btn-outline btn-success ">
+                        <button onClick={handleGoogleSignIn} className="btn btn-outline btn-success ">
                             <FaGoogle></FaGoogle>
                             SignIn by Google
                         </button>
