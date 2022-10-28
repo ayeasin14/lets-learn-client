@@ -10,8 +10,12 @@ const Course = () => {
     return (
         <div className="card card-compact w-5/6 bg-base-100 shadow-lg m-10 p-5">
             <div className='flex justify-between'>
-                <h2 className="card-title">{title}</h2>
-                <button className='btn btn-primary mx-3'>Download PDF <FaDownload className='mx-2' /></button>
+                <div className='items-center text-center'>
+                    <h2 className="card-title">{title}</h2>
+                </div>
+                <div>
+                    <button className='btn btn-primary mx-3'>Download PDF <FaDownload className='mx-2' /></button>
+                </div>
             </div>
             <div className="card-body">
                 <figure className='card card-compact my-3'><img src={image_url} alt="Shoes" /></figure>
