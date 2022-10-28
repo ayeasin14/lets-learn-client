@@ -7,6 +7,7 @@ import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Registration from "../../Pages/Login/Registration";
 import Blog from "../../Pages/Others/Blog/Blog";
+import Error from "../../Pages/Others/Error/Error";
 import FAQ from "../../Pages/Others/FAQ/FAQ";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
@@ -14,6 +15,7 @@ export const routes = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <Error></Error>,
         children: [
             {
                 path: '/',

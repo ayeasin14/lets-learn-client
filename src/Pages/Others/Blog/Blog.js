@@ -4,11 +4,11 @@ const Blog = () => {
     return (
         <div className='lg:mx-32 md:mx-32 my-6'>
 
-            <div className="card card-compact bg-base-100 shadow-xl p-4">
+            <div className="card card-compact bg-base-100 shadow-2xl p-4">
                 <h2 className='text-2xl text-center font-semibold text-rose-300'>Here some common Questions & answers</h2>
                 <figure><img className='my-4' src="https://placeimg.com/400/225/arch" alt="Shoes" /></figure>
                 <div className="card-body grid grid-cols-1 gap-5">
-                    <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                    <div tabIndex={0} className="collapse collapse-arrow border border-amber-400 bg-base-100 rounded-box">
                         <div className="collapse-title text-xl font-medium">
                             What is cors?
                         </div>
@@ -17,7 +17,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                    <div tabIndex={0} className="collapse collapse-arrow border border-amber-400 bg-base-100 rounded-box">
                         <div className="collapse-title text-xl font-medium">
                             Why are you using firebase? What other options do you have to implement authentication?
                         </div>
@@ -36,7 +36,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                    <div tabIndex={0} className="collapse collapse-arrow border border-amber-400 bg-base-100 rounded-box">
                         <div className="collapse-title text-xl font-medium">
                             How does the private route work?
                         </div>
@@ -45,7 +45,7 @@ const Blog = () => {
                         </div>
                     </div>
 
-                    <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+                    <div tabIndex={0} className="collapse collapse-arrow border border-amber-400 bg-base-100 rounded-box">
                         <div className="collapse-title text-xl font-medium">
                             What is Node? How does Node work?
                         </div>

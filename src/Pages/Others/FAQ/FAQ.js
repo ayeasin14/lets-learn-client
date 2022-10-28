@@ -4,7 +4,7 @@ const FAQ = () => {
     return (
         <div className="card-body grid grid-cols-1 gap-5">
             <h1 className='text-center text-4xl text-white'>Frequently Asked Questions</h1>
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+            <div tabIndex={0} className="collapse collapse-arrow border border-teal-300 bg-base-100 rounded-box">
                 <div className="collapse-title text-xl font-medium">
                     What is cors?
                 </div>
@@ -13,7 +13,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+            <div tabIndex={0} className="collapse collapse-arrow border border-teal-300 bg-base-100 rounded-box">
                 <div className="collapse-title text-xl font-medium">
                     Why are you using firebase? What other options do you have to implement authentication?
                 </div>
@@ -32,7 +32,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+            <div tabIndex={0} className="collapse collapse-arrow border border-teal-300 bg-base-100 rounded-box">
                 <div className="collapse-title text-xl font-medium">
                     How does the private route work?
                 </div>
@@ -41,7 +41,7 @@ const FAQ = () => {
                 </div>
             </div>
 
-            <div tabIndex={0} className="collapse collapse-arrow border border-base-300 bg-base-100 rounded-box">
+            <div tabIndex={0} className="collapse collapse-arrow border border-teal-300 bg-base-100 rounded-box">
                 <div className="collapse-title text-xl font-medium">
                     What is Node? How does Node work?
                 </div>

@@ -2,6 +2,7 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -13,6 +14,8 @@ const Login = () => {
     const location = useLocation();
 
     const from = location.state?.from?.pathname || '/';
+
+    const notifySuccess = () => toast('login successful');
 
 
     const googleProvider = new GoogleAuthProvider()
@@ -28,6 +31,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
+                notifySuccess();
                 setError('');
                 navigate(from, { replace: true });
             })
@@ -74,6 +78,7 @@ const Login = () => {
                         <button className="btn w-1/3 sm:btn-sm md:btn-md lg:btn-lg btn-success my-4">Login</button>
                         <p className='text-red-300 mx-3 text-lg'>{error}</p>
                     </div>
+                    <Toaster />
                 </form>
 
                 <p>Haven't any account? <Link to='/signup' className='text-success my-2'>Create an account.</Link> </p>

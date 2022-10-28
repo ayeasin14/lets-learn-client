@@ -5,14 +5,17 @@ import { useContext } from 'react';
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
 import { FaUser } from 'react-icons/fa';
 import LeftSideNav from '../LeftSideNav/LeftSideNav';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
+    const notify = () => toast('Logout successful hope you enjoy this site')
+
     const handleLogOut = () => {
         logOut()
-            .then(() => { })
+            .then(() => { notify(); })
             .catch(error => console.error(error))
 
     }
@@ -46,7 +49,13 @@ const Header = () => {
                         <li><Link to='/'>Courses</Link></li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
-                        <li><Link>toggle theme</Link></li>
+                        <li>
+                            <div className="form-control">
+                                <label className="label cursor-pointer">
+                                    <input type="checkbox" className="toggle" checked />
+                                </label>
+                            </div>
+                        </li>
                     </ul>
                 </div>
                 <div className="navbar-end">
@@ -65,7 +74,10 @@ const Header = () => {
                                             <FaUser />
                                     }
                                 </span>
-                                <Link onClick={handleLogOut} to='' className="btn btn-outline btn-error mx-2">SignOut</Link>
+                                <Link onClick={handleLogOut} to='' className="btn btn-outline btn-error mx-2">
+                                    SignOut
+                                    <Toaster />
+                                </Link>
                             </div>
                             :
 
