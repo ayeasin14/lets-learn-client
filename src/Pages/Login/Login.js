@@ -1,15 +1,15 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
     const [error, setError] = useState('');
-    const { providerLogin, signIn } = useContext(AuthContext);
+    const { googleProviderLogin, gitHubProviderLogin, signIn } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -18,7 +18,8 @@ const Login = () => {
     const notifySuccess = () => toast('login successful');
 
 
-    const googleProvider = new GoogleAuthProvider()
+    const googleProvider = new GoogleAuthProvider();
+    const gitHubProvider = new GithubAuthProvider();
 
     const handleSubmit = event => {
         event.preventDefault();
@@ -43,7 +44,21 @@ const Login = () => {
 
 
     const handleGoogleSignIn = () => {
-        providerLogin(googleProvider)
+        googleProviderLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                setError('');
+                navigate('/');
+            })
+            .catch(error => {
+                console.error(error)
+                setError(error.message);
+            })
+    }
+
+    const handleGithubSignIn = () => {
+        gitHubProviderLogin(gitHubProvider)
             .then(result => {
                 const user = result.user;
                 console.log(user);
@@ -85,26 +100,18 @@ const Login = () => {
                 <div className='items-center text-center '>
                     <hr />
                     <p className='my-5'>Or use one of these options</p>
-                    <div className='grid lg:grid-cols-3 gap-3'>
+                    <div className='grid lg:grid-cols-2 gap-3'>
                         <button onClick={handleGoogleSignIn} className="btn gap-2 btn-outline btn-success ">
                             <FaGoogle></FaGoogle>
                             SignIn by Google
                         </button>
-                        <button className="btn gap-2 btn-outline">
+                        <button onClick={handleGithubSignIn} className="btn gap-2 btn-outline">
                             <FaGithub />
                             SignIn by GitHub
                         </button>
-                        <button className="btn gap-2 btn-outline btn-info">
-                            <FaFacebook />
-                            SignIn by Facebook
-                        </button>
-
                     </div>
                 </div>
             </div>
-
-
-
         </div>
     );
 };
